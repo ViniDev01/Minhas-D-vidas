@@ -1,0 +1,483 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+.container-login {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+
+}
+
+.container-login .box-left {
+    width: 50%;
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("./assets/imagem-login.avif");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.container-login .box-left h1 {
+    text-align: center;
+    font-size: 60px;
+    margin-top: 200px;
+}
+
+.container-login .box-left p {
+    max-width: 600px;
+    margin: 0 auto;
+    margin-top: 40px;
+    text-align: center;
+    font-size: 25px;
+}
+
+/* FORMULARIO LOGIN */
+
+.container-login .box-right {
+    width: 50%;
+    padding: 0 2%;
+}
+
+.cardheader {
+  max-width: 600px;
+  margin: 80px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+}
+.cardheader h1 {
+  font-size: 40px;
+}
+
+.cardheader p {
+  max-width: 250px;
+}
+
+.cardheader button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: block;
+  width: 100px;
+  height: 40px;
+}
+
+.cardheader button:hover {
+  text-decoration:underline;
+}
+
+.container-login .box-right form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.container-login .box-right form label {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.container-login .box-right form label input {
+    height: 60px;
+}
+
+.container-login .box-right form label:last-of-type{
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.container-login .box-right form label:last-of-type span {
+    display: flex; gap: 10px;
+}
+.container-login .box-right form label:last-of-type input {
+    height: 24px;
+}
+
+.container-login .box-right form button {
+    margin: 0 auto;
+    margin-top: 40px;
+    display: block;
+    width: 400px;
+    height: 60px;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-login {
+  background-color: #2e7d32;
+}
+
+.btn-inscrever {
+  background-color: #35bb3b;
+}
+
+.btn-login:hover {
+  background-color: #1b5e20;
+}
+
+.btn-inscrever:hover {
+  background-color: #4caf50;
+}
+
+/* HEADER */
+.header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px 5%;
+    background-color: #0a192f;
+}
+
+.header .logo a {
+    color: white;
+    font-size: 40px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.header button {
+    font-size: 16px;
+    padding: 10px 20px;
+    background-color: #ff5e5e;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.header button:hover {
+    background-color: #d94444;
+}
+
+/* CONTAINER */
+.container-dashboard {
+    display: flex;
+    width: 100%;
+}
+
+/* LEFT - FORMULÁRIO */
+.container-dashboard .box-left {
+    width: 50%;
+    height: calc(100vh - 100px);
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    background-color: rgb(66, 71, 71);
+    color: white;
+}
+
+.container-dashboard .box-left h1 {
+    margin-top: 150px;
+    text-align: center;
+    font-size: 50px;
+    font-weight: 400;
+}
+
+.container-dashboard .box-left input {
+    width: 70%;
+    height: 50px;
+    margin: 0 auto;
+    padding: 15px;
+    font-size: 18px;
+    border-radius: 8px;
+    border: none;
+}
+
+.container-dashboard .box-left button {
+    height: 50px;
+    width: 40%;
+    margin: 0 auto;
+    font-size: 18px;
+    background-color: #1f9e55;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.box-left button:hover {
+  background-color: #157a40;
+}
+
+/* RIGHT - LISTA DE DÍVIDAS */
+.container-dashboard .box-right {
+  width: 50%;
+  height: calc(100vh - 100px);
+  padding: 50px;
+  background-color: #f5f5f5;
+  overflow-y: auto;
+}
+
+.container-dashboard .box-right h1 {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 36px;
+  font-weight: 500;
+  color: #333;
+}
+
+.card-divida {
+  background-color: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin: 30px auto;
+  width: 80%;
+  transition: transform 0.2s ease;
+}
+
+.card-divida:hover {
+  transform: scale(1.02);
+}
+
+.card-divida p {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.card-divida button {
+  padding: 10px 20px;
+  background-color: #1f9e55;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.2s ease;
+}
+
+.card-divida button:hover {
+  background-color: #157a40;
+}
+
+
+/* COMPROVANTE FORM */
+
+.container-inputs {
+  width: 60%;
+  margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  padding: 30px;
+  background-color: #f2f2f2;
+  border-radius: 12px;
+}
+
+.container-inputs input {
+  width: 70%;
+  height: 50px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.container-inputs label {
+  background-color: #1f9e55;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.container-inputs label:hover {
+  background-color: #157a40;
+}
+
+.container-inputs button {
+  width: 40%;
+  height: 45px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #333;
+  color: white;
+  cursor: pointer;
+}
+
+.box-resumo {
+  width: 60%;
+  margin: 40px auto;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  color: #333;
+}
+
+.box-resumo h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.box-resumo p {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.resutado {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+@media (max-width: 1250px) {
+  .resutado p {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 1100px) {
+
+.container-dashboard .box-left h1 {
+  margin-top: 100px;
+  font-size: 5vw;
+}
+
+.cardheader {
+  margin: 140px auto 40px;
+}
+
+.cardheader h1 {
+  font-size: 24px;
+}
+
+.cardheader p {
+  margin-top: 10px;
+  font-size: 14px;
+}
+}
+
+@media (max-width: 860px) {
+.container-login .box-left {
+  display: none;
+}
+
+.container-login .box-right {
+  width: 100%;
+}
+
+.container-inputs {
+  width: 90%;
+}
+
+.box-resumo {
+  width: 90%;
+}
+
+}
+
+@media (max-width: 780px) {
+.container-dashboard {
+  flex-direction: column;
+}
+
+.container-dashboard .box-left h1 {
+  margin-top: 30px;
+  font-size: 40px;
+}
+
+.container-dashboard .box-left {
+    width: 100%;
+    height: auto;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    background-color: rgb(66, 71, 71);
+    color: white;
+}
+
+.container-dashboard .box-right {
+  width: 100%;
+  height: auto;
+  padding: 50px;
+  background-color: #f5f5f5;
+  overflow-y: auto;
+}
+
+}
+
+@media (max-width: 560px) {
+
+.container-inputs input {
+  width: 90%;
+}
+
+.resutado {
+  flex-direction: column;
+}
+.resutado p {
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+}
+
+@media (max-width: 500px) {
+
+.container-login .box-right form button {
+  max-width: 300px;
+  width: 100%;    
+}
+
+
+}
+
+@media (max-width: 400px) {
+
+.comprovantes p {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.comprovantes p button {
+  margin-top: 10px;
+  margin-left: 0 !important;
+  font-size: 15px;
+}
+
+.resutado p {
+  width: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+}
