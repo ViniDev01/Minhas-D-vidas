@@ -262,6 +262,11 @@
   color: #222;
 }
 
+.btn-card-divida {
+  display: flex;
+  gap: 10px;
+}
+
 .card-divida button {
   padding: 10px 20px;
   background-color: #1f9e55;
@@ -382,7 +387,7 @@
 }
 }
 
-@media (max-width: 860px) {
+@media (max-width: 880px) {
 .container-login .box-left {
   display: none;
 }
@@ -397,6 +402,10 @@
 
 .box-resumo {
   width: 90%;
+}
+
+.btn-card-divida {
+  flex-direction: column;
 }
 
 }

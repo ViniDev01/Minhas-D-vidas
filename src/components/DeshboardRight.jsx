@@ -71,8 +71,10 @@ function DeshboardRight({ setDividaSelecionada, isOpen, setIsOpen, refetchTrigge
             <div className="card-divida" key={divida.id}>
                 <p><strong>Motivo:</strong> {divida.titulo}</p>
                 <p><strong>Valor:</strong> {typeof divida.valorTotal === 'number' ? divida.valorTotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) : 'Valor inválido'}</p>
-                <button onClick={() => {setDividaSelecionada(divida); setIsOpen(!isOpen)}}>Ver detalhes</button>
-                <button onClick={() => {excluirDividaComComprovantes(divida.id)}} style={{marginLeft: '30px', backgroundColor: 'red', }}>Excluir</button>
+                <div className="btn-card-divida">
+                    <button onClick={() => {setDividaSelecionada(divida); setIsOpen(!isOpen)}}>Ver detalhes</button>
+                    <button onClick={() => {excluirDividaComComprovantes(divida.id)}} style={{ backgroundColor: 'red', }}>Excluir</button>
+                </div>
             </div>
             )))}
         </div>
