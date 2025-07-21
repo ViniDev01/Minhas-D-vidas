@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { ArrowLeft } from 'lucide-react';
-
+import { useAuth } from '../context/AuthContext';
 
 
 // COMPONENTS
@@ -12,6 +12,7 @@ import ResumoPagamento from '../components/ResumoPagamento';
 
 function DividasPage() {
 
+    const { user } = useAuth();
     const [nomeDivida, setNomeDivida] = useState('');
     const [valorDivida, setValorDivida] = useState('');
     const [valorPago, setValorPago] = useState('');
@@ -69,7 +70,7 @@ function DividasPage() {
               setValorDivida={setValorDivida}
               setIsOpen={setIsOpen}
               setDividaSelecionada={setDividaSelecionada}
-              
+              user={user}
             />
 
             <DeshboardRight 
@@ -79,6 +80,7 @@ function DividasPage() {
               // dividaSelecionada={dividaSelecionada}
               refetchTrigger={refetchTrigger}
               forcarAtualizacao={forcarAtualizacao}
+              user={user}
             />
           </div>        
       

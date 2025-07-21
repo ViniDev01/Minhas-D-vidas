@@ -147,15 +147,13 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 20px 5%;
+    padding: 10px 5%;
     background-color: #0a192f;
 }
 
-.header .logo a {
-    color: white;
-    font-size: 40px;
-    font-weight: 600;
-    text-decoration: none;
+.header .logo {
+    display: flex;
+    align-items: center;
 }
 
 .header button {

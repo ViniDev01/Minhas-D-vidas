@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import { db } from '../firebase/firebaseConfig';
 import { collection, addDoc } from "firebase/firestore";
 
-function DeshboardLeft({ nomeDivida, setNomeDivida, valorDivida, handleValorDividaChange , setValorDivida, setIsOpen, setDividaSelecionada }) {
+function DeshboardLeft({ nomeDivida, setNomeDivida, valorDivida, handleValorDividaChange , setValorDivida, setIsOpen, setDividaSelecionada, user }) {
 
     const [loading, setLoading] = useState(false);
 
@@ -18,7 +18,7 @@ function DeshboardLeft({ nomeDivida, setNomeDivida, valorDivida, handleValorDivi
                 throw new Error("Valor inválido");
             }
 
-            const docRef = await addDoc(collection(db, "debts"), {
+            const docRef = await addDoc(collection(db, "users", user.uid, "debts"), {
                 titulo: nomeDivida,
                 valorTotal: valorNumerico,
                 dataCriacao: new Date()

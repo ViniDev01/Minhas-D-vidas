@@ -18,8 +18,8 @@ function Header() {
 
     return(
         <div className='header'>
-          <div className='logo'><Link to="/dividas"><img src={logo} alt="" style={{width: '80px', height: '80px',
-    objectFit: 'cover'}}/></Link></div>
+          <div className='logo'><img src={logo} alt="" style={{width: '80px', height: '80px',
+    objectFit: 'cover'}}/></div>
           <button onClick={handleLogout}>Sair</button>
         </div>
     )

@@ -1,6 +1,7 @@
 import '../App.css'
 import { useState } from 'react';
-import { auth } from '../firebase/firebaseConfig';
+import { auth, db } from '../firebase/firebaseConfig';
+import { doc, setDoc, serverTimestamp } from "firebase/firestore";
 import { sendPasswordResetEmail, setPersistence, browserLocalPersistence, browserSessionPersistence, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
 
@@ -18,15 +19,23 @@ function LoginPage() {
       // Configura onde a sessão será salva, antes do login
       await setPersistence(auth, lembrarMe ? browserLocalPersistence : browserSessionPersistence);
 
+      let userCredential;
       if (isLogin) {
         // LOGIN EXISTENTE
-        await signInWithEmailAndPassword(auth, email, senha);
+        userCredential = await signInWithEmailAndPassword(auth, email, senha);
         console.log("Login feito com sucesso!");
       } else {
         // CADASTRO
-        await createUserWithEmailAndPassword(auth, email, senha);
+        userCredential = await createUserWithEmailAndPassword(auth, email, senha);
         console.log("Cadastro feito com sucesso!");
       }
+
+      const user = userCredential.user;
+
+      await setDoc(doc(db, "users", user.uid), {
+        email: user.email,
+        createdAt: serverTimestamp()
+      });
 
       navigate('./dividas');
     } catch (error) {

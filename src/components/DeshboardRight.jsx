@@ -3,7 +3,7 @@ import { db, storage } from '../firebase/firebaseConfig';
 import { doc, deleteDoc, collection, getDocs } from "firebase/firestore";
 import { ref as storageRef, deleteObject } from "firebase/storage";
 
-function DeshboardRight({ setDividaSelecionada, isOpen, setIsOpen, refetchTrigger, forcarAtualizacao}) {
+function DeshboardRight({ setDividaSelecionada, isOpen, setIsOpen, refetchTrigger, forcarAtualizacao, user }) {
 
     const [debts, setDebts] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -11,7 +11,7 @@ function DeshboardRight({ setDividaSelecionada, isOpen, setIsOpen, refetchTrigge
     useEffect(() => {
         async function carregarDebts() {
             setLoading(true);
-            const snapshot = await getDocs(collection(db, "debts"));
+            const snapshot = await getDocs(collection(db, "users", user.uid, "debts"));
             const dados = snapshot.docs.map(doc => ({
                 id: doc.id,
                 ...doc.data()
