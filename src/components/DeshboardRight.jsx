@@ -32,13 +32,13 @@ function DeshboardRight({ setDividaSelecionada, isOpen, setIsOpen, refetchTrigge
 
         try {
             // 1. Buscar e excluir todos os comprovantes
-            const comprovantesSnap = await getDocs(collection(db, "debts", dividaId, "comprovantes"));
+            const comprovantesSnap = await getDocs(collection(db, "users", user.uid, "debts", dividaId, "comprovantes"));
             
             for (const docItem of comprovantesSnap.docs) {
             const compData = docItem.data();
 
             // Excluir do Firestore
-            await deleteDoc(doc(db, "debts", dividaId, "comprovantes", docItem.id));
+            await deleteDoc(doc(db, "users", user.uid, "debts", dividaId, "comprovantes", docItem.id));
             
             // Excluir do Storage, se tiver arquivo
             if (compData.arquivo) {
@@ -50,7 +50,7 @@ function DeshboardRight({ setDividaSelecionada, isOpen, setIsOpen, refetchTrigge
             }
 
             // 2. Excluir a dívida
-            await deleteDoc(doc(db, "debts", dividaId));
+            await deleteDoc(doc(db, "users", user.uid, "debts", dividaId));
             setDividaSelecionada(null);
             forcarAtualizacao();
 
