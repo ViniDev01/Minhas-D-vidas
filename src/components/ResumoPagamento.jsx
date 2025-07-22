@@ -3,7 +3,7 @@ import { db, storage } from '../firebase/firebaseConfig';
 import { collection, onSnapshot, doc, deleteDoc } from "firebase/firestore";
 import { ref as storageRef, deleteObject } from "firebase/storage";
 
-function ResumoPagamento({ dividaSelecionada, refetchTrigger }) {
+function ResumoPagamento({ dividaSelecionada, refetchTrigger, user }) {
     const [comprovantes, setComprovantes] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -43,7 +43,7 @@ function ResumoPagamento({ dividaSelecionada, refetchTrigger }) {
 
         try{
 
-            await deleteDoc(doc(db, "debts", dividaSelecionada.id, "comprovantes", comprovanteId));
+            await deleteDoc(doc(db, "users", user.uid, "debts", dividaSelecionada.id, "comprovantes", comprovanteId));
 
             if(arquivoUrl) {
                 const urlPath = new URL(arquivoUrl).pathname;

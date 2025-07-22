@@ -94,12 +94,14 @@ function DividasPage() {
               dividaSelecionada={dividaSelecionada}
               setValorPago={setValorPago}
               onSuccess={forcarAtualizacao}
+              user={user}
             />
 
             <ResumoPagamento 
               dividaSelecionada={dividaSelecionada} 
               refetchTrigger={refetchTrigger}
               key={refetchTrigger}
+              user={user}
             />
 
           </>
