@@ -4,7 +4,7 @@ import { db, storage } from '../firebase/firebaseConfig';
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { collection, addDoc } from "firebase/firestore";
 
-function ComprovanteForm({ handleValorPagoChange, valorPago, dividaSelecionada, setValorPago, onSuccess }) {
+function ComprovanteForm({ handleValorPagoChange, valorPago, dividaSelecionada, setValorPago, onSuccess, user }) {
 
     const [pdfFile, setPdfFile] = useState(null);
     const [dataPaga, setDataPaga] = useState('');
@@ -46,7 +46,7 @@ function ComprovanteForm({ handleValorPagoChange, valorPago, dividaSelecionada, 
                 return;
             }
 
-            await addDoc(collection(db, "debts", debtsId, "comprovantes"), comprovante);
+            await addDoc(collection(db, "users", user.uid, "debts", debtsId, "comprovantes"), comprovante);
             alert("Comprovante enviado com sucesso!");
             if(onSuccess) onSuccess();
             setPdfFile(null);
