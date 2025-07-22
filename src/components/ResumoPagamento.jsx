@@ -15,7 +15,7 @@ function ResumoPagamento({ dividaSelecionada, refetchTrigger, user }) {
             return;
         }
         setLoading(true);
-        const comprovantesRef = collection(db, "debts", dividaSelecionada.id, "comprovantes");
+        const comprovantesRef = collection(db, "users", user.uid, "debts", dividaSelecionada.id, "comprovantes");
 
         const unsubscribe = onSnapshot(comprovantesRef, 
             (snapshot) => {
