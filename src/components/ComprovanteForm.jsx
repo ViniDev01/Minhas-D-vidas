@@ -25,7 +25,7 @@ function ComprovanteForm({ handleValorPagoChange, valorPago, dividaSelecionada, 
         setLoading(true);
         try {
             
-            const arquivoRef = ref(storage, `comprovantes/${debtsId}/${pdfFile.name}`);
+            const arquivoRef = ref(storage, `comprovantes/${user.uid}/${debtsId}/${pdfFile.name}`);
             await uploadBytes(arquivoRef, pdfFile);
             const url = await getDownloadURL(arquivoRef);
 
