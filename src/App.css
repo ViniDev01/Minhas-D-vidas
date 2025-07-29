@@ -437,6 +437,95 @@
   overflow-y: auto;
 }
 
+.container-login .box-right {
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.cardheader {
+  max-width: 600px;
+  margin: 0px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+}
+
+.cardheader button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: block;
+  width: 100px;
+  height: 40px;
+}
+
+.cardheader button:hover {
+  text-decoration:underline;
+}
+
+.container-login .box-right form {
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.container-login .box-right form label {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.container-login .box-right form label input {
+    height: 60px;
+}
+
+.container-login .box-right form label:last-of-type{
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.container-login .box-right form label:last-of-type span {
+    display: flex; gap: 10px;
+}
+.container-login .box-right form label:last-of-type input {
+    height: 24px;
+}
+
+.container-login .box-right form button {
+    margin: 0 auto;
+    margin-top: 40px;
+    display: block;
+    width: 400px;
+    height: 60px;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-login {
+  background-color: #2e7d32;
+}
+
+.btn-inscrever {
+  background-color: #35bb3b;
+}
+
+.btn-login:hover {
+  background-color: #1b5e20;
+}
+
+.btn-inscrever:hover {
+  background-color: #4caf50;
+}
+
 }
 
 @media (max-width: 560px) {
