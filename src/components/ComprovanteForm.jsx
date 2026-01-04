@@ -65,23 +65,23 @@ function ComprovanteForm({ handleValorPagoChange, valorPago, dividaSelecionada, 
     
     const handleFileChange = (e) => {
         const file = e.target.files[0];
-        if (file && file.type === "application/pdf") {
+        if (file) {
         setPdfFile(file);
         } else {
-        alert("Por favor, selecione um arquivo PDF válido.");
+        alert("Por favor, selecione um arquivo válido.");
         e.target.value = null; // limpa o input
         }
     };   
 
     return (
         <div className='container-inputs'>
-            <input id="file-upload" type='file' accept="application/pdf" ref={inputRef} onChange={handleFileChange} style={{display: "none"}}/>
+            <input id="file-upload" type='file' multiple ref={inputRef} onChange={handleFileChange} style={{display: "none"}}/>
 
             <label htmlFor="file-upload" className='upload' style={{ cursor: 'pointer' }}>
-                <Upload /> PDF
+                <Upload /> (PDF, PNG, JPG...)
             </label>
 
-            {pdfFile && <p>Arquivo selecionado: {pdfFile.name}</p>}
+            {pdfFile && <p className="fileName">Arquivo selecionado: {pdfFile.name}</p>}
 
             <input id="input-valor-pago" type='text' placeholder='valor pago' value={valorPago} onChange={handleValorPagoChange}/>
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { db, storage } from '../firebase/firebaseConfig';
-import { collection, onSnapshot, doc, deleteDoc } from "firebase/firestore";
+import { collection, onSnapshot, query, doc, deleteDoc, orderBy } from "firebase/firestore";
 import { ref as storageRef, deleteObject } from "firebase/storage";
 
 function ResumoPagamento({ dividaSelecionada, refetchTrigger, user }) {
@@ -16,8 +16,9 @@ function ResumoPagamento({ dividaSelecionada, refetchTrigger, user }) {
         }
         setLoading(true);
         const comprovantesRef = collection(db, "users", user.uid, "debts", dividaSelecionada.id, "comprovantes");
+        const q = query(comprovantesRef, orderBy("dataPaga", "asc"));
 
-        const unsubscribe = onSnapshot(comprovantesRef, 
+        const unsubscribe = onSnapshot(q, 
             (snapshot) => {
                 const dados = snapshot.docs.map(doc => ({
                     id: doc.id,

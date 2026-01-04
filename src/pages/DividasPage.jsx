@@ -86,7 +86,7 @@ function DividasPage() {
       
         <div style={{ display: isOpen ? 'block' : 'none' }}>
           <>
-            <ArrowLeft onClick={() => setIsOpen(!isOpen)}/>
+            <ArrowLeft onClick={() => setIsOpen(!isOpen)} className='btn-back'/>
             
             <ComprovanteForm 
               handleValorPagoChange={handleValorPagoChange}
